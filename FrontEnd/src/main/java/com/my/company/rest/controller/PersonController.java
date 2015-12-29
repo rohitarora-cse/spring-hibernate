@@ -1,5 +1,7 @@
 package com.my.company.rest.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +19,13 @@ public class PersonController {
 	@RequestMapping("/")
 	public String home() {
 		Person person = new Person("Larry");
-		personService.save(person);
+		//personService.save(person);
+		personService.savePerson(person);
 		return "Welcome to my rest portal";
 	}
 
 	@RequestMapping("/all")
-	public Iterable<Person> findAll() {
+	public List<Person> findAll() {
 		return personService.findAll();
 	}
 
